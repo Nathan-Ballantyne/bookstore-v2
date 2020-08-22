@@ -1,11 +1,8 @@
 import React from 'react';
-import NavBar from './components/Navigation/NavBar/NavBar';
+import Dashboard from './containers/Dashboard/Dashboard';
 
 function App() {
-  return (
-    <NavBar />
-      
-  );
+    return <Dashboard />;
 }
 
 export default App;
