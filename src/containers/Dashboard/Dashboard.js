@@ -1,14 +1,14 @@
 import React from 'react';
 import NavBar from '../../components/Toolbar/NavBar/NavBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import NavCardBar from '../../components/NavCardBar/NavCardBar';
+import MainContent from '../MainContent/MainContent';
 
 const Dashboard = () => {
     return (
         <>
             <NavBar />
             <SearchBar />
-            <NavCardBar />
+            <MainContent />
         </>
     );
 };
