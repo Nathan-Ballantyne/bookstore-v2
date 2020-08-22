@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap');
+
+
+.NavCard {
+    height: 150px;
+    width: 260px;
+    color: #e8ded2;
+    background-color: #5eaaa8;
+    margin-left: 350px;
+    border-radius: 17px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.NavCard:hover {
+    cursor: pointer;
+}
+
+.Content {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    color: #e8ded2;
+    font-family: 'Baloo Tamma 2', cursive;
+    font-size: 15px;
+}
