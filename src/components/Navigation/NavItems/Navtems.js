@@ -1,7 +1,7 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
 
-import icon from '../../assets/Icons/book-icon.png';
+import icon from '../../../assets/Icons/book-icon.png';
 
 const navItems = [
     { type: 'main', icon: icon, title: 'Bookstore', alt: 'main-icon' },
