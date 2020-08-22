@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap');
+
+.SearchBar {
+    /* box-sizing: border-box; */
+    color: #056676;
+    margin-left: 350px;
+    margin-top: 20px;
+    border: 2px solid #a3d2ca;
+    border-radius: 20px;
+    background-color: #e8ded2;
+    padding-left: 10px;
+    width: 600px;
+    height: 40px;
+    font-family: 'Baloo Tamma 2', cursive;
+    font-size: 20px;
+}
+
+.SearchBar::placeholder {
+    color: #056676;
+    margin-left: 350px;
+    margin-top: 20px;
+    font-family: 'Baloo Tamma 2', cursive;
+    font-size: 20px;
+}
+
+.SearchBar:focus {
+    outline: none;
+}
