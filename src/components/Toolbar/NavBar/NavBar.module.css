@@ -9,6 +9,7 @@
     align-items: center;
     /* text-align: center; */
     box-sizing: border-box;
+    border-top-right-radius: 25px;
     z-index: 90;
 }
 
