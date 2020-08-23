@@ -1,13 +1,16 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
 
-import icon from '../../../assets/Icons/book-icon.png';
+import bookIcon from '../../../assets/Icons/book-icon.png';
+import listIcon from '../../../assets/Icons/list-icon.png';
+import statsIcon from '../../../assets/Icons/stats-icon.png';
+import userIcon from '../../../assets/Icons/user-icon.png';
 
 const navItems = [
-    { type: 'main', icon: icon, title: 'Bookstore', alt: 'main-icon' },
-    { type: 'detail', icon: icon, title: 'Profile', alt: 'profile-icon' },
-    { type: 'detail', icon: icon, title: 'Lists', alt: 'lists-icon' },
-    { type: 'detail', icon: icon, title: 'Stats', alt: 'stats-icon' },
+    { type: 'main', icon: bookIcon, title: 'Bookstore', alt: 'main-icon' },
+    { type: 'detail', icon: userIcon, title: 'Profile', alt: 'profile-icon' },
+    { type: 'detail', icon: listIcon, title: 'Lists', alt: 'lists-icon' },
+    { type: 'detail', icon: statsIcon, title: 'Stats', alt: 'stats-icon' },
 ];
 
 const NavigationItems = () => {
