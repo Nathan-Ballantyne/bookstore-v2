@@ -1,0 +1,11 @@
+.BookCover {
+    height: 205px;
+    width: 145px;
+    background-color: #5eaaa8;
+    color: #e8ded2;
+    text-align: center;
+    border-radius: 16px;
+    box-sizing: border-box;
+    padding-top: 20px;
+    font-family: inherit;
+}
