@@ -1,0 +1,36 @@
+.Details {
+    height: 205px;
+    width: 145px;
+    padding-left: 10px;
+    font-family: inherit;
+}
+
+.Rating {
+    color: #C6D2D4;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.Title {
+    font-size: 25px;
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+
+.Author {
+    color: #C6D2D4;
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.DetailButton {
+    background-color: #5eaaa8;
+    color: #e8ded2;
+    border-radius: 30px;
+    border: none;
+    margin-top: 15px;
+    width: 85px;
+    height: 35px;
+}
