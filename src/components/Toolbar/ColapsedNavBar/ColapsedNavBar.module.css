@@ -1,0 +1,15 @@
+.ColapsedNavBar {
+    height: 45px;
+    width: 45px;
+    margin: 20px;
+}
+
+.ColapsedNavBar:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 499px) {
+    .ColapsedNavBar {
+        display: none;
+    }
+}

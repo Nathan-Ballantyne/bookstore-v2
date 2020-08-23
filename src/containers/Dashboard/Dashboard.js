@@ -1,12 +1,13 @@
 import React from 'react';
-import NavBar from '../../components/Toolbar/NavBar/NavBar';
+import Toolbar from '../../components/Toolbar/Toolbar';
+import SideDrawer from '../../components/Toolbar/SideDrawer/SideDrawer';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import MainContent from '../MainContent/MainContent';
 
 const Dashboard = () => {
     return (
         <>
-            <NavBar />
+            <SideDrawer />
             <SearchBar />
             <MainContent />
         </>
