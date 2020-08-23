@@ -4,3 +4,8 @@
     top: 80px;
     height: 100%;
 }
+@media (max-width: 499px) {
+    .MainContent {
+        left: 40px;
+    }
+}
