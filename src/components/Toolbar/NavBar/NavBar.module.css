@@ -10,7 +10,6 @@
     /* text-align: center; */
     box-sizing: border-box;
     border-top-right-radius: 25px;
-    z-index: 90;
 }
 
 @media (max-width: 499px) {
