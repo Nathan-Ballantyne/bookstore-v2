@@ -1,4 +1,5 @@
 .NavCardBar {
     margin-top: 75px;
     display: flex;
+    flex-wrap: wrap;
 }

@@ -3,6 +3,8 @@
     left: 260px;
     top: 80px;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 @media (max-width: 499px) {
     .MainContent {
