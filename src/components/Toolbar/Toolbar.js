@@ -7,7 +7,6 @@ const Toolbar = () => {
     const [open, setOpen] = useState(false);
     return (
         <div>
-
             <BurgerMenu open={open} setOpen={setOpen} />
             <Menu open={open} setOpen={setOpen} />
         </div>
