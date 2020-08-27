@@ -6,8 +6,9 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    overflow: auto;
 }
-@media (max-width: 499px) {
+@media (max-width: 579px) {
     .MainContent {
         left: 40px;
     }
