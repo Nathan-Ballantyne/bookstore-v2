@@ -2,17 +2,19 @@
 
 .SearchBar {
     /* box-sizing: border-box; */
-    color: #056676;
-    margin-left: 350px;
-    margin-top: 20px;
     border: none;
     border-bottom: 2px solid #a3d2ca;
     background-color: #e8ded2;
-    padding-left: 10px;
-    width: 600px;
-    height: 40px;
+    color: #056676;
     font-family: 'Baloo Tamma 2', cursive;
     font-size: 20px;
+    height: 40px;
+    margin-left: 350px;
+    margin-top: 20px;
+    padding-left: 10px;
+    position: absolute;
+    top: 0;
+    width: 600px;
 }
 
 .SearchBar::placeholder {
