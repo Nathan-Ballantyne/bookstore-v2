@@ -2,12 +2,20 @@ import React from 'react';
 import BookDetail from './BookDetail/BookDetail';
 import classes from './BookDetailBar.module.css';
 
-const BookDetailBar = () => {
+const BookDetailBar = (props) => {
     return (
         <div className={classes.BookDetailBar}>
-            <BookDetail />
-            <BookDetail />
-            <BookDetail />
+            {props.books.map((book) => {
+                return (
+                    <BookDetail
+                        key={book.id}
+                        id={book.id}
+                        rating={book.rating}
+                        title={book.title}
+                        author={book.author}
+                    />
+                );
+            })}
         </div>
     );
 };
