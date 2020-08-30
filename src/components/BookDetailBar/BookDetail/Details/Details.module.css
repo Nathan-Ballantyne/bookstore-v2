@@ -38,3 +38,7 @@
 .DetailButton:hover {
     cursor: pointer;
 }
+
+.DetailButton:focus {
+    outline: none;
+}
