@@ -13,6 +13,7 @@ const BookDetailBar = (props) => {
                         rating={book.rating}
                         title={book.title}
                         author={book.author}
+                        getBookDetails={props.getBookDetails}
                     />
                 );
             })}

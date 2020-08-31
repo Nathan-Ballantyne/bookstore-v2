@@ -12,6 +12,7 @@ const BookDetail = (props) => {
                 rating={props.rating}
                 title={props.title}
                 author={props.author}
+                getBookDetails={props.getBookDetails}
             />
         </div>
     );
