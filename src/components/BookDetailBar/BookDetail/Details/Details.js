@@ -7,7 +7,7 @@ const Details = (props) => {
             <p className={classes.Rating}>{props.rating}</p>
             <p className={classes.Title}>{props.title}</p>
             <p className={classes.Author}>{props.author}</p>
-            <button className={classes.DetailButton} onClick={props.getBookDetails.bind(props.id)}>Details</button>
+            <button className={classes.DetailButton} onClick={() => props.getBookDetails(props.id)}>Details</button>
         </div>
     );
 };
