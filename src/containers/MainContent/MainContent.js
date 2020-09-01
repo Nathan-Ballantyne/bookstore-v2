@@ -54,6 +54,7 @@ class MainContent extends Component {
                 <Modal
                     show={this.state.showModal}
                     modalClosed={this.modalClosed}>
+                    <Book />
                     <p>{this.state.book?.rating}</p>
                     <p>{this.state.book?.title}</p>
                     <p>{this.state.book?.author}</p>
