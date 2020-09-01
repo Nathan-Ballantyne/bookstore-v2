@@ -33,7 +33,6 @@ class MainContent extends Component {
     };
 
     bookDetails = (id) => {
-        console.log(id);
         this.setState({
             book: this.books.find((el) => el.id === id),
             showModal: true,
@@ -55,7 +54,9 @@ class MainContent extends Component {
                 <Modal
                     show={this.state.showModal}
                     modalClosed={this.modalClosed}>
-                    <p>{this.state.book}</p>
+                    <p>{this.state.book?.rating}</p>
+                    <p>{this.state.book?.title}</p>
+                    <p>{this.state.book?.author}</p>
                 </Modal>
             </div>
         );
