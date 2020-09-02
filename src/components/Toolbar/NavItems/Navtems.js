@@ -1,5 +1,5 @@
 import React from 'react';
-import NavItem from './NavItem/NavItem';
+import NavItem from '../../UI/Button/Button';
 import classes from './NavItems.module.css';
 
 import bookIcon from '../../../assets/Icons/book-icon.png';

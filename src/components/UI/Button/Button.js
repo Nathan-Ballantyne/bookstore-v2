@@ -1,18 +1,18 @@
 import React from 'react';
-import classes from './NavItem.module.css';
+import classes from './Button.module.css';
 
-const NavItem = (props) => {
+const Button = (props) => {
     let iconClass = classes.IconDetailed;
     let titleClass = classes.TitleDetailed;
-    let navType = classes.NavItemDetailed;
+    let buttonType = classes.ButtonDetailed;
 
     if (props.itemType === 'main') {
         iconClass = classes.IconMain;
         titleClass = classes.TitleMain;
-        navType = classes.NavItemMain;
+        buttonType = classes.ButtonMain;
     }
     return (
-        <div className={navType}>
+        <div className={buttonType}>
              <img className={iconClass}
                 src={props.icon}
                 alt={props.alt}
@@ -22,4 +22,4 @@ const NavItem = (props) => {
     );
 };
 
-export default NavItem;
+export default Button;

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap');
 
-.NavItemDetailed {
+.ButtonDetailed {
     width: 235px;
     height: 40px;
     border-radius: 25px;
@@ -14,7 +14,7 @@
     display: flex;
 }
 
-.NavItemMain {
+.ButtonMain {
     width: 235px;
     height: 60px;
     color: #056676;
@@ -27,11 +27,11 @@
     display: flex;
 }
 
-.NavItemMain:hover {
+.ButtonMain:hover {
     cursor: pointer;
 }
 
-.NavItemDetailed:hover {
+.ButtonDetailed:hover {
     cursor: pointer;
 }
 
