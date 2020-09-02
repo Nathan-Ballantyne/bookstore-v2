@@ -1,5 +1,7 @@
 import React from 'react';
-import { useGoogleLogin, GoogleLogin } from 'react-google-login';
+import { useGoogleLogin } from 'react-google-login';
+import Button from '../../UI/Button/Button';
+import googleIcon from '../../../assets/Icons/google-logo.png';
 
 //refrest token
 import { refreshTokenSetup } from '../RefreshToken/RefreshToken';
@@ -26,17 +28,13 @@ function LoginHooks() {
     });
 
     return (
-        <div>
-            <GoogleLogin
-                clientId={clientId}
-                buttonText='Login'
-                onSuccess={onSuccess}
-                onFailure={onFailure}
-                cookiePolicy={'single_host_origin'}
-                style={{ marginTop: '100px' }}
-                isSignedIn={true}
-            />
-        </div>
+        <Button
+            itemType='detailed'
+            click={signIn}
+            icon={googleIcon}
+            alt='google-icon'
+            title='Login with Google'
+        />
     );
 }
 
