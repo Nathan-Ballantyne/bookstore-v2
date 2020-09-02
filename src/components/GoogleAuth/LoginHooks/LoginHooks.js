@@ -32,7 +32,7 @@ function LoginHooks() {
                 buttonText='Login'
                 onSuccess={onSuccess}
                 onFailure={onFailure}
-                cookiePolicy={'Secure'}
+                cookiePolicy={'single_host_origin'}
                 style={{ marginTop: '100px' }}
                 isSignedIn={true}
             />
