@@ -29,7 +29,7 @@ function LoginHooks() {
 
     return (
         <Button
-            itemType='detailed'
+            itemType='google'
             click={signIn}
             icon={googleIcon}
             alt='google-icon'
