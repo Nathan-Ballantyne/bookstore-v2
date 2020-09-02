@@ -10,6 +10,10 @@ const Button = (props) => {
         iconClass = classes.IconMain;
         titleClass = classes.TitleMain;
         buttonType = classes.ButtonMain;
+    } else if (props.itemType === 'google') {
+        iconClass = classes.IconMain;
+        titleClass = classes.TitleMain;
+        buttonType = classes.ButtonGoogle;
     }
     return (
         <div className={buttonType} onClick={props.click}>
