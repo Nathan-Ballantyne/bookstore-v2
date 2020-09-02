@@ -12,11 +12,8 @@ const Button = (props) => {
         buttonType = classes.ButtonMain;
     }
     return (
-        <div className={buttonType}>
-             <img className={iconClass}
-                src={props.icon}
-                alt={props.alt}
-            />
+        <div className={buttonType} onClick={props.click}>
+            <img className={iconClass} src={props.icon} alt={props.alt} />
             <span className={titleClass}>{props.title}</span>
         </div>
     );
