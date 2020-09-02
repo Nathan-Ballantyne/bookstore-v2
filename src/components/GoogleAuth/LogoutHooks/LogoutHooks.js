@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGoogleLogout } from 'react-google-login';
 import Button from '../../UI/Button/Button';
+import LogoutStyle from './LogoutHooks.styled';
 import googleIcon from '../../../assets/Icons/google-logo.png';
 
 const clientId =
@@ -22,13 +23,15 @@ function LogoutHooks() {
     });
 
     return (
-        <Button
-            itemType='detailed'
-            click={signOut}
-            icon={googleIcon}
-            alt='google-icon'
-            title='Log Out'
-        />
+        <LogoutStyle>
+            <Button
+                itemType='detailed'
+                click={signOut}
+                icon={googleIcon}
+                alt='google-icon'
+                title='Log Out'
+            />
+        </LogoutStyle>
     );
 }
 
