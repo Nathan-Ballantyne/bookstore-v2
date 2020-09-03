@@ -27,7 +27,7 @@ const BookDetailBar = (props) => {
                         id={book.id}
                         // rating={book.rating}
                         title={book.volumeInfo.title}
-                        author={book.volumeInfo.authors.join(' ')}
+                        author={book.volumeInfo.authors.join(', ')}
                         // getBookDetails={props.getBookDetails}
                         img={book.volumeInfo.imageLinks.smallThumbnail}
                     />
