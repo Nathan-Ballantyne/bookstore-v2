@@ -1,12 +1,8 @@
 import React from 'react';
-import classes from './BookCover.module.css';
+import Cover from './BookCover.styled';
 
-const BookCover = () => {
-    return (
-        <div className={classes.BookCover}>
-            Cover
-        </div>
-    );
+const BookCover = ({ img }) => {
+    return <Cover img={img} alt='book-img' />;
 };
 
 export default BookCover;
