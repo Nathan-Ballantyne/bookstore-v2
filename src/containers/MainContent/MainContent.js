@@ -6,26 +6,6 @@ import Modal from '../../components/UI/Modal/Modal';
 import Book from '../../components/BookDetailBar/BookDetail/BookCover/BookCover';
 
 class MainContent extends Component {
-    books = [
-        {
-            id: 1,
-            rating: 4.9,
-            title: 'The Name of the Wind',
-            author: 'Patrick Rothfuss',
-        },
-        {
-            id: 2,
-            rating: 4.9,
-            title: 'The Wise Mans Fear',
-            author: 'Patrick Rothfuss',
-        },
-        {
-            id: 3,
-            rating: 4.8,
-            title: 'The Slow Regard of Silent Things',
-            author: 'Patrick Rothfuss',
-        },
-    ];
 
     state = {
         book: null,

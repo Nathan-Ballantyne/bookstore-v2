@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import BookDetail from './BookDetail/BookDetail';
 import classes from './BookDetailBar.module.css';
 
 const BookDetailBar = (props) => {
+    const [books, setBooks] = useState([]);
+
+    useEffect(() => {
+        console.log(books);
+        if(books.length === 0){
+            fetch(
+                'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/2/volumes'
+            )
+                .then((res) => res.json())
+                .then((response) => setBooks(response.items))
+                .then(console.log(books))
+                .catch(console.log);
+        }
+    });
+
     return (
         <div className={classes.BookDetailBar}>
-            {props.books.map((book) => {
+            {books.map((book) => {
                 return (
                     <BookDetail
                         key={book.id}
                         id={book.id}
-                        rating={book.rating}
-                        title={book.title}
-                        author={book.author}
-                        getBookDetails={props.getBookDetails}
+                        // rating={book.rating}
+                        title={book.volumeInfo.title}
+                        author={book.volumeInfo.authors.join(' ')}
+                        // getBookDetails={props.getBookDetails}
+                        img={book.volumeInfo.imageLinks.smallThumbnail}
                     />
                 );
             })}
@@ -21,4 +37,4 @@ const BookDetailBar = (props) => {
     );
 };
 
-export default BookDetailBar;
+export default memo(BookDetailBar);

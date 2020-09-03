@@ -6,7 +6,7 @@ import classes from './BookDetail.module.css';
 const BookDetail = (props) => {
     return (
         <div className={classes.BookDetail}>
-            <BookCover />
+            <BookCover img={props.img} />
             <Details
                 id={props.id}
                 rating={props.rating}
