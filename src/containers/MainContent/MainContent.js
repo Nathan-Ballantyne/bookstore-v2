@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './MainContent.module.css';
-import NavCardBar from '../../components/NavCardBar/NavCardBar';
+import NavCardBar from '../../components/BookshelfBar/BookshelfBar';
 import BookDetailBar from '../../components/BookDetailBar/BookDetailBar';
 import Modal from '../../components/UI/Modal/Modal';
 import Book from '../../components/BookDetailBar/BookDetail/BookCover/BookCover';

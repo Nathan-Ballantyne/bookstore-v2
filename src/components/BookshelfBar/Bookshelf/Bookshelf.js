@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './NavCard.module.css';
+import classes from './Bookshelf.module.css';
 
 const cards = [
     { title: 'Your Books' },
