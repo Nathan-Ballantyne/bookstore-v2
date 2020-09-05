@@ -5,16 +5,22 @@ import axios from 'axios';
 
 const BookDetailBar = (props) => {
     const [books, setBooks] = useState([]);
+    const [shelfId, setShelfId] = useState(0);
 
     useEffect(() => {
-        if (books.length === 0) {
+        console.log(props.shelfId);
+        
+        if (books.length === 0 || shelfId !== props.shelfId) {
             axios
                 .get(
-                    'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/2/volumes'
+                    `https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/${props.shelfId}/volumes`
                 )
-                .then((response) => setBooks(response.data.items))
+                .then((response) => {
+                    setBooks(response.data.items);
+                    setShelfId(props.shelfId);
+                })
                 .catch(console.log);
-        }
+            }
     });
 
     return (
