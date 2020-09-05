@@ -1,18 +1,18 @@
 import React, { useEffect, useState, memo } from 'react';
 import BookDetail from './BookDetail/BookDetail';
 import classes from './BookDetailBar.module.css';
+import axios from 'axios';
 
 const BookDetailBar = (props) => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        console.log(books);
-        if(books.length === 0){
-            fetch(
-                'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/2/volumes'
-            )
-                .then((res) => res.json())
-                .then((response) => setBooks(response.items))
+        if (books.length === 0) {
+            axios
+                .get(
+                    'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/2/volumes'
+                )
+                .then((response) => setBooks(response.data.items))
                 .then(console.log(books))
                 .catch(console.log);
         }
