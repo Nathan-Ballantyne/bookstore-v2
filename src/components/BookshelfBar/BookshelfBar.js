@@ -1,11 +1,15 @@
 import React from 'react';
-import NavCard from './Bookshelf/Bookshelf';
+import Bookshelf from './Bookshelf/Bookshelf';
 import classes from './BookshelfBar.module.css';
 
-const NavCardBar = () => {
+const NavCardBar = (props) => {
     return (
         <div className={classes.NavCardBar}>
-            <NavCard />
+        {props.bookshelves.map(shelf => {
+            return (
+                <Bookshelf key={shelf.id} title={shelf.title} />
+            );
+        })}
         </div>
     );
 };

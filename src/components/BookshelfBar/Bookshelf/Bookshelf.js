@@ -1,24 +1,12 @@
 import React from 'react';
 import classes from './Bookshelf.module.css';
 
-const cards = [
-    { title: 'Your Books' },
-    { title: 'Winter Reads' },
-    { title: 'Summer Reads' },
-];
-
-const NavCard = () => {
+const Bookshelf = (props) => {
     return (
-        <>
-            {cards.map((card) => {
-                return (
-                    <div key={card.title} className={classes.NavCard}>
-                        <span className={classes.Content}>{card.title}</span>
-                    </div>
-                );
-            })}
-        </>
+        <div className={classes.NavCard}>
+            <span className={classes.Content}>{props.title}</span>
+        </div>
     );
 };
 
-export default NavCard;
+export default Bookshelf;
