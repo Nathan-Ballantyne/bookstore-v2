@@ -13,7 +13,6 @@ const BookDetailBar = (props) => {
                     'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/2/volumes'
                 )
                 .then((response) => setBooks(response.data.items))
-                .then(console.log(books))
                 .catch(console.log);
         }
     });
