@@ -1,47 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './MainContent.module.css';
-import NavCardBar from '../../components/BookshelfBar/BookshelfBar';
+import BookshelfBar from '../../components/BookshelfBar/BookshelfBar';
 import BookDetailBar from '../../components/BookDetailBar/BookDetailBar';
-import Modal from '../../components/UI/Modal/Modal';
-import Book from '../../components/BookDetailBar/BookDetail/BookCover/BookCover';
+import axios from 'axios';
 
-class MainContent extends Component {
+const MainContent = () => {
+    const [bookShelves, setBookShelves] = useState([]);
+    const [shelfId, setShelfId] = useState(0);
 
-    state = {
-        book: null,
-        showModal: false,
-    };
+    useEffect(() => {
+        if (bookShelves.length === 0) {
+            axios
+                .get(
+                    'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves'
+                )
+                .then((response) => setBookShelves(response.data.items))
+                .catch('Error: ', console.log);
+        }
+    });
 
-    bookDetails = (id) => {
-        this.setState({
-            book: this.books.find((el) => el.id === id),
-            showModal: true,
-        });
-    };
-
-    modalClosed = () => {
-        this.setState({ showModal: false });
-    };
-
-    render() {
-        return (
-            <div className={classes.MainContent}>
-                <NavCardBar />
-                <BookDetailBar
-                    getBookDetails={this.bookDetails}
-                    books={this.books}
-                />
-                <Modal
-                    show={this.state.showModal}
-                    modalClosed={this.modalClosed}>
-                    <Book />
-                    <p>{this.state.book?.rating}</p>
-                    <p>{this.state.book?.title}</p>
-                    <p>{this.state.book?.author}</p>
-                </Modal>
-            </div>
-        );
+    const getShelf = (id) => {
+        setShelfId(id);
     }
-}
+
+    return (
+        <div className={classes.MainContent}>
+            <BookshelfBar changeShelf={getShelf} bookshelves={bookShelves} />
+            <BookDetailBar shelfId={shelfId} />
+        </div>
+    );
+};
 
 export default MainContent;
