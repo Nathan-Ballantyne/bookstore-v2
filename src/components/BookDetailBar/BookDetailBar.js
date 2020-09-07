@@ -10,8 +10,6 @@ const BookDetailBar = (props) => {
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
-        console.log(props.shelfId);
-
         if (books.length === 0 || shelfId !== props.shelfId) {
             setLoaded(false);
             axios
@@ -35,10 +33,12 @@ const BookDetailBar = (props) => {
                 <BookDetail
                     key={book.id}
                     id={book.id}
-                    // rating={book.rating}
                     title={book.volumeInfo.title}
+                    subtitle={book.volumeInfo.subtitle}
+                    description={book.volumeInfo.description}
                     author={book.volumeInfo.authors.join(', ')}
-                    // getBookDetails={props.getBookDetails}
+                    pagecount={book.volumeInfo.pageCount}
+                    publishedDate={book.volumeInfo.publishedDate}
                     img={book.volumeInfo.imageLinks.smallThumbnail}
                 />
             );
