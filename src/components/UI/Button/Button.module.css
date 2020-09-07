@@ -12,6 +12,7 @@
     margin: 20px 15px 20px 10px;
     box-sizing: border-box;
     display: flex;
+    transition: transform .3s;
 }
 
 .ButtonGoogle {
@@ -26,6 +27,7 @@
     margin: 20px 15px 20px 10px;
     box-sizing: border-box;
     display: flex;
+    transition: transform .3s;
 }
 
 .ButtonMain {
@@ -39,18 +41,22 @@
     margin-bottom: 100px;
     box-sizing: border-box;
     display: flex;
+    transition: transform .3s;
 }
 
 .ButtonMain:hover {
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .ButtonGoogle:hover {
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .ButtonDetailed:hover {
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .IconDetailed {
