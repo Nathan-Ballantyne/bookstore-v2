@@ -40,6 +40,7 @@ const BookDetailBar = (props) => {
                     pagecount={book.volumeInfo.pageCount}
                     publishedDate={book.volumeInfo.publishedDate}
                     img={book.volumeInfo.imageLinks.smallThumbnail}
+                    showDetails={props.detailClicked}
                 />
             );
         });
