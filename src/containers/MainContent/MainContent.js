@@ -11,7 +11,7 @@ const MainContent = () => {
     const [shelfId, setShelfId] = useState(0);
     const [loaded, setLoaded] = useState(false);
     const [showModal, setShowModal] = useState(false);
-    let modalContent = null;
+    const [modalContent, setModalContent] = useState(null);
 
     useEffect(() => {
         if (bookShelves.length === 0) {
@@ -32,9 +32,8 @@ const MainContent = () => {
     };
 
     const showDetails = (items) => {
-        console.log(items);
         setShowModal(true);
-        modalContent = (
+        setModalContent(
             <>
                 <p>{items.title}</p>
                 <p>{items.subtitle ?? ''}</p>
@@ -53,7 +52,6 @@ const MainContent = () => {
                 </p>
             </>
         );
-        console.log(modalContent);
     };
 
     const modalClosed = () => {
