@@ -13,7 +13,7 @@ const BookDetail = (props) => {
                 title={props.title}
                 subtitle={props.subtitle}
                 description={props.description}
-                pagecount={props.pageCount}
+                pagecount={props.pagecount}
                 publishedDate={props.publishedDate}
                 author={props.author}
                 getBookDetails={props.showDetails}
