@@ -14,7 +14,7 @@ const BookDetailBar = (props) => {
             setLoaded(false);
             axios
                 .get(
-                    `https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves/${props.shelfId}/volumes`
+                    `https://www.googleapis.com/books/v1/users/${process.env.REACT_APP_GOOGLE_USER_ID}/bookshelves/${props.shelfId}/volumes`
                 )
                 .then((response) => {
                     setBooks(response.data.items);

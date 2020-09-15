@@ -17,7 +17,7 @@ const MainContent = () => {
         if (bookShelves.length === 0) {
             axios
                 .get(
-                    'https://www.googleapis.com/books/v1/users/101691569536719382664/bookshelves'
+                    `https://www.googleapis.com/books/v1/users/${process.env.REACT_APP_GOOGLE_USER_ID}/bookshelves`
                 )
                 .then((response) => {
                     setBookShelves(response.data.items);
