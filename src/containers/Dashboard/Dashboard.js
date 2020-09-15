@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Toolbar from '../../components/Toolbar/Toolbar';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 
 const Dashboard = () => {
@@ -8,7 +8,7 @@ const Dashboard = () => {
     return (
         <>
             <Toolbar open={open} setOpen={setOpen} />
-            <SearchBar open={open} setOpen={setOpen} />
+            <Search open={open} setOpen={setOpen} />
             <MainContent open={open} setOpen={setOpen} />
         </>
     );
