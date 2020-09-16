@@ -9,12 +9,12 @@
     font-family: 'Baloo Tamma 2', cursive;
     font-size: 20px;
     height: 40px;
-    margin-left: 280px;
+    /* margin-left: 280px;
     margin-top: 20px;
     padding-left: 10px;
     position: absolute;
-    top: 0;
-    width: 40%;
+    top: 0; */
+    /* width: 40%; */
 }
 
 .SearchBar::placeholder {
