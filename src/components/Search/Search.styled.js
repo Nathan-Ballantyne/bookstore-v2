@@ -8,6 +8,8 @@ const SearchStyled = styled.div`
     top: 0;
     width: 40%;
     display: inline-block;
+    border: none;
+    border-bottom: 2px solid #a3d2ca;
 `;
 
 export default SearchStyled;
