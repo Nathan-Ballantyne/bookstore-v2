@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classes from './SearchBar.module.css';
+import SearchResults from '../SearchResults/SearchResults';
 import axios from 'axios';
 
 const SearchBar = () => {
@@ -22,18 +23,28 @@ const SearchBar = () => {
                 .then((response) => {
                     setSearchResults(response.data.items);
                     console.log(response.data.items);
+                    console.log(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm.replace(
+                        ' ',
+                        '+'
+                    )}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`);
                 })
                 .catch(console.log);
+        } else {
+            setSearchResults([]);
+            setSearchTerm('');
         }
-    }, [searchTerm, searchResults.length]);
+    }, [searchTerm]);
 
     return (
+        <>
         <input
             className={classes.SearchBar}
             placeholder={'Search books by name, genre or author'}
             value={searchTerm}
             onChange={handleChange}
         />
+        <SearchResults results={searchResults} />
+        </>
     );
 };
 

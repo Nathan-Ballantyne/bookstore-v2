@@ -10,6 +10,7 @@ const SearchStyled = styled.div`
     display: inline-block;
     border: none;
     border-bottom: 2px solid #a3d2ca;
+    z-index: 100;
 `;
 
 export default SearchStyled;
