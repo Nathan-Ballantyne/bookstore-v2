@@ -3,7 +3,7 @@ import classes from './SearchBar.module.css';
 import SearchResults from '../SearchResults/SearchResults';
 import axios from 'axios';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
 
@@ -43,7 +43,7 @@ const SearchBar = () => {
             value={searchTerm}
             onChange={handleChange}
         />
-        <SearchResults results={searchResults} term={searchTerm} />
+        <SearchResults showDetails={props.showDetails} results={searchResults} term={searchTerm} />
         </>
     );
 };

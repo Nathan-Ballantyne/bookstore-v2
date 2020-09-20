@@ -3,10 +3,13 @@ import SearchBar from './SearchBar/SearchBar';
 import SearchStyle from './Search.styled';
 
 const Search = (props) => {
-
     return (
         <SearchStyle>
-            <SearchBar open={props.open} setOpen={props.setOpen} />
+            <SearchBar
+                showDetails={props.modalDetails}
+                open={props.open}
+                setOpen={props.setOpen}
+            />
         </SearchStyle>
     );
 };
