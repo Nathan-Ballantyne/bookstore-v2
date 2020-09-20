@@ -4,7 +4,7 @@ import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const [open, setOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
@@ -41,7 +41,7 @@ const Dashboard = () => {
             <Modal show={showModal} modalClosed={modalClosed}>
                 {modalContent}
             </Modal>
-            <Toolbar open={open} setOpen={setOpen} />
+            <Toolbar isLoggedIn={props.setLogin} open={open} setOpen={setOpen} />
             <Search modalDetails={showModalDetails} open={open} setOpen={setOpen} />
             <MainContent modalDetails={showModalDetails} open={open} setOpen={setOpen} />
         </>

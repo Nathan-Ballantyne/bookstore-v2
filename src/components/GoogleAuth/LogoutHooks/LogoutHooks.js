@@ -6,9 +6,9 @@ import googleIcon from '../../../assets/Icons/google-logo.png';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 
-function LogoutHooks() {
+function LogoutHooks({isLoggedIn}) {
     const onLogoutSuccess = (res) => {
-        alert('logged out successfully ✌');
+        isLoggedIn(false);
     };
 
     const onFailure = () => {

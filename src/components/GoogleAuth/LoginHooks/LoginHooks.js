@@ -8,11 +8,10 @@ import { refreshTokenSetup } from '../RefreshToken/RefreshToken';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 
-function LoginHooks() {
+function LoginHooks(props) {
 
     const onSuccess = (res) => {
-        //console.log('Login Success: currentUser:', res.profileObj);
-        //console.log('Token ID', res.tokenId);
+        props.setLogin(true)
         refreshTokenSetup(res);
     };
 
@@ -24,7 +23,7 @@ function LoginHooks() {
         onSuccess,
         onFailure,
         clientId,
-        isSignedIn: true,
+        isSignedIn: props.loggedIn,
         responseType: 'code,token'
         // accessType: 'offline',
     });

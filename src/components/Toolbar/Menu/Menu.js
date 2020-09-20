@@ -4,11 +4,11 @@ import { StyledMenu } from './Menu.styled';
 import NavItems from '../NavItems/Navtems';
 import GoogleLogOutButton from '../../GoogleAuth/LogoutHooks/LogoutHooks';
 
-const Menu = ({ open }) => {
+const Menu = ({ open, isLoggedIn }) => {
   return (
     <StyledMenu open={open}>
       <NavItems />
-      <GoogleLogOutButton />
+      <GoogleLogOutButton isLoggedIn={isLoggedIn} />
     </StyledMenu>
   )
 }
