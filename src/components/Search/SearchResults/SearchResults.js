@@ -1,15 +1,23 @@
 import React from 'react';
-import List from './SearchResults.styled';
+import List, {Item} from './SearchResults.styled';
 
-const SearchResults = ({ results }) => {
+const SearchResults = ({ results, term }) => {
+    if (results === [] || term === '') {
+        return null;
+    }
     return (
         <List>
             {results.map((result) => {
                 return (
-                    <div key={result.id}>
-                        <img style={{width: '36px', height: '60px', display: 'inline-block'}} src={result.volumeInfo.imageLinks.smallThumbnail} alt={result.volumeInfo.title} />
-                        <li style={{display: 'inline-block'}}>{result.volumeInfo.title}</li>
-                    </div>
+                    <Item key={result.id}>
+                        <img
+                            src={result?.volumeInfo?.imageLinks?.smallThumbnail}
+                            alt={result.volumeInfo.title}
+                        />
+                        <span>
+                            {result?.volumeInfo?.title}
+                        </span>
+                    </Item>
                 );
             })}
         </List>

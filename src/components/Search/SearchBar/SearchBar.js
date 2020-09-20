@@ -43,7 +43,7 @@ const SearchBar = () => {
             value={searchTerm}
             onChange={handleChange}
         />
-        <SearchResults results={searchResults} />
+        <SearchResults results={searchResults} term={searchTerm} />
         </>
     );
 };

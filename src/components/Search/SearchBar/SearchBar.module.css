@@ -8,6 +8,8 @@
     font-size: 20px;
     height: 40px;
     width: 90%;
+    border: none;
+    border-bottom: 2px solid #a3d2ca;
 }
 
 .SearchBar::placeholder {
