@@ -6,12 +6,13 @@ import googleIcon from '../../../assets/Icons/google-logo.png';
 //refrest token
 import { refreshTokenSetup } from '../RefreshToken/RefreshToken';
 
-const clientId =
-    '1032311259786-8ng5p7orh8rbf3pluscibuvv3mdrs3t6.apps.googleusercontent.com';
+const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 
 function LoginHooks() {
+
     const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj);
+        //console.log('Login Success: currentUser:', res.profileObj);
+        //console.log('Token ID', res.tokenId);
         refreshTokenSetup(res);
     };
 
@@ -24,7 +25,8 @@ function LoginHooks() {
         onFailure,
         clientId,
         isSignedIn: true,
-        accessType: 'offline',
+        responseType: 'code,token'
+        // accessType: 'offline',
     });
 
     return (
