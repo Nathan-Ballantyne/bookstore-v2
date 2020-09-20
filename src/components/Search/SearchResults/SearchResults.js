@@ -1,7 +1,8 @@
 import React from 'react';
-import List, {Item} from './SearchResults.styled';
+import List, { Item, QuickInfo, ThumbNail } from './SearchResults.styled';
+import quickInfoIcon from '../../../assets/Icons/read-more-icon.png';
 
-const SearchResults = ({ results, term }) => {
+const SearchResults = ({ results, term, showDetails }) => {
     if (results === [] || term === '') {
         return null;
     }
@@ -10,13 +11,16 @@ const SearchResults = ({ results, term }) => {
             {results.map((result) => {
                 return (
                     <Item key={result.id}>
-                        <img
+                        <QuickInfo
+                            onClick={() => showDetails(result?.volumeInfo)}
+                            src={quickInfoIcon}
+                            alt={'Quick Info'}
+                        />
+                        <ThumbNail
                             src={result?.volumeInfo?.imageLinks?.smallThumbnail}
                             alt={result.volumeInfo.title}
                         />
-                        <span>
-                            {result?.volumeInfo?.title}
-                        </span>
+                        <span>{result?.volumeInfo?.title}</span>
                     </Item>
                 );
             })}
