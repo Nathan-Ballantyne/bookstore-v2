@@ -18,11 +18,11 @@ const Dashboard = () => {
                 <p>{items.description ?? ''}</p>
                 <p>
                     <strong>Author: </strong>
-                    {items.author ?? ''}
+                    {items.author ?? items?.authors?.join(', ') ?? ''}
                 </p>
                 <p>
                     <strong>Pages: </strong>
-                    {items.pagecount ?? ''}
+                    {items.pagecount ?? items.pageCount ?? ''}
                 </p>
                 <p>
                     <strong>Published: </strong>
