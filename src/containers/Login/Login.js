@@ -7,7 +7,7 @@ const Login = (props) => {
     return (
         <LoginStyle>
             <TitleStyle>Bookstore</TitleStyle>
-            <GoogleLoginButton setLogin={props.setLogin} loggedIn={props.loggedIn} />
+            <GoogleLoginButton setToken={props.setToken} setLogin={props.setLogin} loggedIn={props.loggedIn} />
         </LoginStyle>
     );
 };

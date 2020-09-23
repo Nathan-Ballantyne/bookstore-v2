@@ -2,7 +2,7 @@ import React from 'react';
 import List, { Item, QuickInfo, ThumbNail } from './SearchResults.styled';
 import quickInfoIcon from '../../../assets/Icons/read-more-icon.png';
 
-const SearchResults = ({ results, term, showDetails }) => {
+const SearchResults = ({ results, term, showDetails, addBook }) => {
     if (results === [] || term === '') {
         return null;
     }
@@ -17,6 +17,7 @@ const SearchResults = ({ results, term, showDetails }) => {
                             alt={'Quick Info'}
                         />
                         <ThumbNail
+                            onClick={() => addBook(result.id)}
                             src={result?.volumeInfo?.imageLinks?.smallThumbnail}
                             alt={result.volumeInfo.title}
                         />

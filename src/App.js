@@ -5,14 +5,15 @@ import LoginPage from './containers/Login/Login';
 
 function App() {
     const [isLoggedIn, setisLoggedIn] = useState(false);
+    const [googleToken, setgoogleToken] = useState('');
 
     return (
         <Switch>
             <Route path='/login'>
-                {isLoggedIn ? <Redirect to='/' /> : <LoginPage setLogin={setisLoggedIn} loggedIn={isLoggedIn} />}
+                {isLoggedIn ? <Redirect to='/' /> : <LoginPage setToken={setgoogleToken} setLogin={setisLoggedIn} loggedIn={isLoggedIn} />}
             </Route>
             <Route path='/'>
-                {!isLoggedIn ? <Redirect to='/login' /> : <Dashboard setLogin={setisLoggedIn} />}
+                {!isLoggedIn ? <Redirect to='/login' /> : <Dashboard token={googleToken} setLogin={setisLoggedIn} />}
             </Route>
         </Switch>
     );

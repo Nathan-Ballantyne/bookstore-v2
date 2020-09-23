@@ -9,6 +9,7 @@ const Search = (props) => {
                 showDetails={props.modalDetails}
                 open={props.open}
                 setOpen={props.setOpen}
+                addBook={props.addBook}
             />
         </SearchStyle>
     );

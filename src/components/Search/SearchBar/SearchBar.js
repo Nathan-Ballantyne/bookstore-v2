@@ -22,11 +22,6 @@ const SearchBar = (props) => {
                 )
                 .then((response) => {
                     setSearchResults(response.data.items);
-                    console.log(response.data.items);
-                    console.log(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm.replace(
-                        ' ',
-                        '+'
-                    )}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`);
                 })
                 .catch(console.log);
         } else {
@@ -43,7 +38,7 @@ const SearchBar = (props) => {
             value={searchTerm}
             onChange={handleChange}
         />
-        <SearchResults showDetails={props.showDetails} results={searchResults} term={searchTerm} />
+        <SearchResults addBook={props.addBook} showDetails={props.showDetails} results={searchResults} term={searchTerm} />
         </>
     );
 };

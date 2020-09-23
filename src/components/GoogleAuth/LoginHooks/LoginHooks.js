@@ -11,7 +11,8 @@ const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 function LoginHooks(props) {
 
     const onSuccess = (res) => {
-        props.setLogin(true)
+        props.setLogin(true);
+        props.setToken(res.accessToken);
         refreshTokenSetup(res);
     };
 
@@ -23,9 +24,13 @@ function LoginHooks(props) {
         onSuccess,
         onFailure,
         clientId,
-        isSignedIn: props.loggedIn,
-        responseType: 'code,token'
-        // accessType: 'offline',
+        isSignedIn: true,//props.loggedIn,
+        prompt: 'consent',
+        responseType: 'code,token',
+        accessType: 'offline',
+        cookiePolicy: 'single_host_origin',
+        scope: 'https://www.googleapis.com/auth/books'
+        
     });
 
     return (

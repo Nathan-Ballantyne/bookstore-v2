@@ -3,6 +3,7 @@ import Toolbar from '../../components/Toolbar/Toolbar';
 import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
+import axios from 'axios';
 
 const Dashboard = (props) => {
     const [open, setOpen] = useState(false);
@@ -32,6 +33,21 @@ const Dashboard = (props) => {
         );
     };
 
+    const addBookToShelf = async (bookId) => {
+        axios
+            .post(
+                `https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${props.token}`,
+                    },
+                }
+            )
+            .then(console.log)
+            .catch(console.log);
+    };
+
     const modalClosed = () => {
         setShowModal(false);
     };
@@ -41,9 +57,22 @@ const Dashboard = (props) => {
             <Modal show={showModal} modalClosed={modalClosed}>
                 {modalContent}
             </Modal>
-            <Toolbar isLoggedIn={props.setLogin} open={open} setOpen={setOpen} />
-            <Search modalDetails={showModalDetails} open={open} setOpen={setOpen} />
-            <MainContent modalDetails={showModalDetails} open={open} setOpen={setOpen} />
+            <Toolbar
+                isLoggedIn={props.setLogin}
+                open={open}
+                setOpen={setOpen}
+            />
+            <Search
+                modalDetails={showModalDetails}
+                open={open}
+                setOpen={setOpen}
+                addBook={addBookToShelf}
+            />
+            <MainContent
+                modalDetails={showModalDetails}
+                open={open}
+                setOpen={setOpen}
+            />
         </>
     );
 };
