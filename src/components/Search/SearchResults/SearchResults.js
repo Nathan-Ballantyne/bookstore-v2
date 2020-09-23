@@ -1,6 +1,7 @@
 import React from 'react';
 import List, { Item, QuickInfo, ThumbNail } from './SearchResults.styled';
 import quickInfoIcon from '../../../assets/Icons/read-more-icon.png';
+import addIcon from '../../../assets/Icons/add-button-icon.png';
 
 const SearchResults = ({ results, term, showDetails, addBook }) => {
     if (results === [] || term === '') {
@@ -12,16 +13,16 @@ const SearchResults = ({ results, term, showDetails, addBook }) => {
                 return (
                     <Item key={result.id}>
                         <QuickInfo
-                            onClick={() => showDetails(result?.volumeInfo)}
+                            onClick={() => showDetails(result?.volumeInfo, true)}
                             src={quickInfoIcon}
                             alt={'Quick Info'}
                         />
                         <ThumbNail
-                            onClick={() => addBook(result.id)}
                             src={result?.volumeInfo?.imageLinks?.smallThumbnail}
                             alt={result.volumeInfo.title}
                         />
-                        <span>{result?.volumeInfo?.title}</span>
+                        <span style={{marginRight: '10px'}}>{result?.volumeInfo?.title}</span>
+                        <QuickInfo onClick={() => addBook(result.id)} src={addIcon} alt={'add book'} />
                     </Item>
                 );
             })}
