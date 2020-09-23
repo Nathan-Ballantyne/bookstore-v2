@@ -3,6 +3,7 @@ import Toolbar from '../../components/Toolbar/Toolbar';
 import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
+import RemoveButton from '../../components/UI/Button/RemoveButton.styled';
 import axios from 'axios';
 
 const Dashboard = (props) => {
@@ -10,7 +11,7 @@ const Dashboard = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
 
-    const showModalDetails = (items) => {
+    const showModalDetails = (items, search = false) => {
         setShowModal(true);
         setModalContent(
             <>
@@ -29,6 +30,7 @@ const Dashboard = (props) => {
                     <strong>Published: </strong>
                     {items.publishedDate ?? ''}
                 </p>
+                {!search ? <RemoveButton onClick={() => removeBookFromShelf(items.id)}>Remove</RemoveButton> : null}
             </>
         );
     };
@@ -37,6 +39,21 @@ const Dashboard = (props) => {
         axios
             .post(
                 `https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+                {},
+                {
+                    headers: {
+                        Authorization: `Bearer ${props.token}`,
+                    },
+                }
+            )
+            .then(console.log)
+            .catch(console.log);
+    };
+
+    const removeBookFromShelf = async (bookId) => {
+        axios
+            .post(
+                `https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/removeVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
                 {},
                 {
                     headers: {
