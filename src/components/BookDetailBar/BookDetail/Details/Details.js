@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import classes from './Details.module.css';
 
 const Details = (props) => {
@@ -17,11 +18,13 @@ const Details = (props) => {
             <p className={classes.Rating}>{props.rating}</p>
             <p className={classes.Title}>{props.title}</p>
             <p className={classes.Author}>{props.author}</p>
-            <button
-                className={classes.DetailButton}
-                onClick={() => props.getBookDetails(bookDetails)}>
+            <div className={classes.DetailButton}>
+
+            <Link style={{textDecoration: 'none'}}
+                to={`/book/${props.id}`}>
                 Details
-            </button>
+            </Link>
+            </div>
         </div>
     );
 };

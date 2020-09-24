@@ -33,7 +33,17 @@
     margin-top: 15px;
     width: 85px;
     height: 35px;
+    text-decoration: none;
     transition: transform .3s;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.DetailButton a {
+    text-decoration: none;
+    color: #C6D2D4;
 }
 
 .DetailButton:hover {
