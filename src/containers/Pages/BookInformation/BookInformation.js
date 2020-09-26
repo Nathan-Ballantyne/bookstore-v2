@@ -1,26 +1,62 @@
-import React from 'react'
-import BookPage from './BookInformation.styled';
+import React, { useState, useEffect } from 'react';
+import BookPage, { Cover } from './BookInformation.styled';
+import { TitleStyleSmall } from '../../../components/UI/Title/Title.styled';
+import axios from 'axios';
+import parse from 'html-react-parser';
+//import Spinner from '../../../components/UI/Spinner/Spinner';
 
-const BookInformation = (props) => {
+const BookInformation = () => {
+    const [bookId, setbookId] = useState('');
+    const [bookInformation, setbookInformation] = useState({});
+    // const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        //book id is the second item in the path array
+        const path = window.location.pathname.split('/');
+        const id = path[2];
+        setbookId(id);
+        if (bookId !== '') {
+            axios
+                .get(
+                    `https://www.googleapis.com/books/v1/volumes/${id}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+                )
+                .then((res) => {
+                    setbookInformation(res.data);
+                    //setLoaded(true);
+                    console.log(res.data);
+                })
+                .catch(console.log);
+        }
+    }, [bookId]);
+
     return (
         <BookPage>
-            <p>{props.title}</p>
-                <p>{props.subtitle ?? ''}</p>
-                <p>{props.description ?? ''}</p>
+            <Cover
+                src={bookInformation?.volumeInfo?.imageLinks?.thumbnail}
+                alt={bookInformation?.volumeInfo?.title + ' img'}
+            />
+            <p><strong>Price: </strong>{bookInformation?.saleInfo?.listPrice?.currencyCode + ' $' + bookInformation?.saleInfo?.listPrice?.amount}</p>
+            <span>
+                <TitleStyleSmall>
+                    {bookInformation?.volumeInfo?.title}
+                </TitleStyleSmall>
+
                 <p>
                     <strong>Author: </strong>
-                    {props?.authors?.join(', ') ?? ''}
+                    {bookInformation?.volumeInfo?.authors?.join(', ')}
                 </p>
+                {parse(bookInformation?.volumeInfo?.description ?? '')}
                 <p>
                     <strong>Pages: </strong>
-                    {props.pageCount ?? ''}
+                    {bookInformation?.volumeInfo?.pageCount}
                 </p>
                 <p>
                     <strong>Published: </strong>
-                    {props.publishedDate ?? ''}
+                    {bookInformation?.volumeInfo?.publishedDate}
                 </p>
+            </span>
         </BookPage>
-    )
-}
+    );
+};
 
-export default BookInformation
+export default BookInformation;

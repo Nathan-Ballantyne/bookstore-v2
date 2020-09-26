@@ -10,6 +10,15 @@ const BookPage = styled.div`
     align-content: flex-start;
     overflow: auto;
     flex-direction: column;
+    width: 50%;
 `;
+
+export const Cover = styled.img`
+    width: 128px;
+    height: 196px;
+    display: inline-block;
+`;
+
+
 
 export default BookPage;
