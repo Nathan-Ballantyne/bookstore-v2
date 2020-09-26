@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 import classes from './Details.module.css';
 
 const Details = (props) => {
-    const bookDetails = {
-        id: props.id,
-        title: props.title,
-        subtitle: props.subtitle,
-        description: props.description,
-        author: props.author,
-        pagecount: props.pagecount,
-        publishedDate: props.publishedDate,
-    };
 
     return (
         <div className={classes.Details}>
