@@ -4,6 +4,8 @@ import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
 import RemoveButton from '../../components/UI/Button/RemoveButton.styled';
+import BookPage from '../Pages/BookInformation/BookInformation';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 
 const Dashboard = (props) => {
@@ -30,7 +32,11 @@ const Dashboard = (props) => {
                     <strong>Published: </strong>
                     {items.publishedDate ?? ''}
                 </p>
-                {!search ? <RemoveButton onClick={() => removeBookFromShelf(items.id)}>Remove</RemoveButton> : null}
+                {!search ? (
+                    <RemoveButton onClick={() => removeBookFromShelf(items.id)}>
+                        Remove
+                    </RemoveButton>
+                ) : null}
             </>
         );
     };
@@ -85,11 +91,16 @@ const Dashboard = (props) => {
                 setOpen={setOpen}
                 addBook={addBookToShelf}
             />
-            <MainContent
-                modalDetails={showModalDetails}
-                open={open}
-                setOpen={setOpen}
-            />
+            <Route path='/book/:id'>
+                <BookPage />
+            </Route>
+            <Route exact path='/'>
+                <MainContent
+                    modalDetails={showModalDetails}
+                    open={open}
+                    setOpen={setOpen}
+                />
+            </Route>
         </>
     );
 };
