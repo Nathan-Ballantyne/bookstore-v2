@@ -3,6 +3,8 @@ import BookPage, { Cover } from './BookInformation.styled';
 import { TitleStyleSmall } from '../../../components/UI/Title/Title.styled';
 import axios from 'axios';
 import parse from 'html-react-parser';
+import AddRemoveButton from '../../../components/UI/Button/AddRemoveButton.styled';
+//import addIcon from '../../../assets/Icons/add-button-icon.png';
 //import Spinner from '../../../components/UI/Spinner/Spinner';
 
 const BookInformation = () => {
@@ -35,12 +37,20 @@ const BookInformation = () => {
                 src={bookInformation?.volumeInfo?.imageLinks?.thumbnail}
                 alt={bookInformation?.volumeInfo?.title + ' img'}
             />
-            <p><strong>Price: </strong>{bookInformation?.saleInfo?.listPrice?.currencyCode + ' $' + bookInformation?.saleInfo?.listPrice?.amount}</p>
+            {bookInformation?.saleInfo?.listPrice?.currencyCode !==
+            undefined ? (
+                <p>
+                    <strong>Price: </strong>
+                    {bookInformation?.saleInfo?.listPrice?.currencyCode +
+                        ' $' +
+                        bookInformation?.saleInfo?.listPrice?.amount}
+                </p>
+            ) : null}
             <span>
                 <TitleStyleSmall>
                     {bookInformation?.volumeInfo?.title}
                 </TitleStyleSmall>
-
+                <AddRemoveButton color='#5eaaa8'>Add</AddRemoveButton>
                 <p>
                     <strong>Author: </strong>
                     {bookInformation?.volumeInfo?.authors?.join(', ')}
