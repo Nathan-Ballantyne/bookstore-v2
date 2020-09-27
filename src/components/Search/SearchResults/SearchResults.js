@@ -2,18 +2,22 @@ import React from 'react';
 import List, { Item, QuickInfo, ThumbNail } from './SearchResults.styled';
 import quickInfoIcon from '../../../assets/Icons/read-more-icon.png';
 import addIcon from '../../../assets/Icons/add-button-icon.png';
+import Link from '../../UI/ReactLinkStyle/Link.styled';
 
-const SearchResults = ({ results, term, showDetails, addBook }) => {
+const SearchResults = ({ results, term, showDetails, addBook, setSearch }) => {
     if (results === [] || term === '') {
         return null;
     }
+    console.log(results);
     return (
         <List>
             {results.map((result) => {
                 return (
                     <Item key={result.id}>
                         <QuickInfo
-                            onClick={() => showDetails(result?.volumeInfo, true)}
+                            onClick={() =>
+                                showDetails(result?.volumeInfo, true)
+                            }
                             src={quickInfoIcon}
                             alt={'Quick Info'}
                         />
@@ -21,8 +25,20 @@ const SearchResults = ({ results, term, showDetails, addBook }) => {
                             src={result?.volumeInfo?.imageLinks?.smallThumbnail}
                             alt={result.volumeInfo.title}
                         />
-                        <span style={{marginRight: '10px'}}>{result?.volumeInfo?.title}</span>
-                        <QuickInfo onClick={() => addBook(result.id)} src={addIcon} alt={'add book'} />
+
+                        <Link
+                            onClick={() => setSearch('')}
+                            to={`/book/${result?.id}`}>
+                            {result?.volumeInfo?.title}
+                        </Link>
+                        <QuickInfo
+                            onClick={() => {
+                                addBook(result.id);
+                                setSearch('');
+                            }}
+                            src={addIcon}
+                            alt={'add book'}
+                        />
                     </Item>
                 );
             })}
