@@ -3,7 +3,7 @@ import Toolbar from '../../components/Toolbar/Toolbar';
 import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
-import RemoveButton from '../../components/UI/Button/RemoveButton.styled';
+import AddRemoveButton from '../../components/UI/Button/AddRemoveButton.styled';
 import BookPage from '../Pages/BookInformation/BookInformation';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
@@ -33,9 +33,9 @@ const Dashboard = (props) => {
                     {items.publishedDate ?? ''}
                 </p>
                 {!search ? (
-                    <RemoveButton onClick={() => removeBookFromShelf(items.id)}>
+                    <AddRemoveButton color='red' onClick={() => removeBookFromShelf(items.id)}>
                         Remove
-                    </RemoveButton>
+                    </AddRemoveButton>
                 ) : null}
             </>
         );
