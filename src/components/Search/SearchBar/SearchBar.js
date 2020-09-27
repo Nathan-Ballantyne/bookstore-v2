@@ -32,13 +32,19 @@ const SearchBar = (props) => {
 
     return (
         <>
-        <input
-            className={classes.SearchBar}
-            placeholder={'Search books by name, genre or author'}
-            value={searchTerm}
-            onChange={handleChange}
-        />
-        <SearchResults addBook={props.addBook} showDetails={props.showDetails} results={searchResults} term={searchTerm} />
+            <input
+                className={classes.SearchBar}
+                placeholder={'Search books by name, genre or author'}
+                value={searchTerm}
+                onChange={handleChange}
+            />
+            <SearchResults
+                setSearch={setSearchTerm}
+                addBook={props.addBook}
+                showDetails={props.showDetails}
+                results={searchResults}
+                term={searchTerm}
+            />
         </>
     );
 };
