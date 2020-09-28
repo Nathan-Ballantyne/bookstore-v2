@@ -3,7 +3,7 @@ import Toolbar from '../../components/Toolbar/Toolbar';
 import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
-import AddRemoveButton from '../../components/UI/Button/AddRemoveButton.styled';
+import SelectShelfModal from '../../components/UI/Modal/SelectShelfModal';
 import BookPage from '../Pages/BookInformation/BookInformation';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
@@ -12,8 +12,9 @@ const Dashboard = (props) => {
     const [open, setOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
+    const [bookShelves, setBookShelves] = useState([]);
 
-    const showModalDetails = (items, search = false) => {
+    const showModalDetails = (items) => {
         setShowModal(true);
         setModalContent(
             <>
@@ -32,11 +33,6 @@ const Dashboard = (props) => {
                     <strong>Published: </strong>
                     {items.publishedDate ?? ''}
                 </p>
-                {!search ? (
-                    <AddRemoveButton color='red' onClick={() => removeBookFromShelf(items.id)}>
-                        Remove
-                    </AddRemoveButton>
-                ) : null}
             </>
         );
     };
@@ -77,6 +73,8 @@ const Dashboard = (props) => {
 
     return (
         <>
+            <SelectShelfModal options={[{value: 1, title: 'one'}, {value: 2, title: 'two'}]} addBook={addBookToShelf} bookId='' />
+                
             <Modal show={showModal} modalClosed={modalClosed}>
                 {modalContent}
             </Modal>
@@ -99,6 +97,8 @@ const Dashboard = (props) => {
                     modalDetails={showModalDetails}
                     open={open}
                     setOpen={setOpen}
+                    bookShelves={bookShelves}
+                    setBookShelves={setBookShelves}
                 />
             </Route>
         </>

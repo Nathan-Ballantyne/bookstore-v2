@@ -16,7 +16,7 @@ const SearchResults = ({ results, term, showDetails, addBook, setSearch }) => {
                     <Item key={result.id}>
                         <QuickInfo
                             onClick={() =>
-                                showDetails(result?.volumeInfo, true)
+                                showDetails(result?.volumeInfo)
                             }
                             src={quickInfoIcon}
                             alt={'Quick Info'}
