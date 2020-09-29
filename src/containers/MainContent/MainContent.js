@@ -5,8 +5,7 @@ import BookDetailBar from '../../components/BookDetailBar/BookDetailBar';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from 'axios';
 
-const MainContent = (props) => {
-    const [bookShelves, setBookShelves] = useState([]);
+const MainContent = ({ modalDetails, bookShelves, setBookShelves, removeBook }) => {
     const [shelfId, setShelfId] = useState(0);
     const [loaded, setLoaded] = useState(false);
 
@@ -39,7 +38,7 @@ const MainContent = (props) => {
     return (
         <div className={classes.MainContent}>
             {bookshelfBar}
-            <BookDetailBar detailClicked={props.modalDetails} shelfId={shelfId} />
+            <BookDetailBar removeBook={removeBook} detailClicked={modalDetails} shelfId={shelfId} />
         </div>
     );
 };
