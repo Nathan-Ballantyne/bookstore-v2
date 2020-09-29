@@ -10,6 +10,7 @@ const AddRemoveButton = styled.button`
     font-size: 12px;
     color: white;
     border: none;
+    display: inline-block;
     &:hover {
         cursor: pointer;
     }
