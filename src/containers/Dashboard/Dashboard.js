@@ -52,10 +52,10 @@ const Dashboard = (props) => {
             .catch(console.log);
     };
 
-    const removeBookFromShelf = async (bookId) => {
+    const removeBookFromShelf = async (bookId, shelfId) => {
         axios
             .post(
-                `https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/removeVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+                `https://www.googleapis.com/books/v1/mylibrary/bookshelves/${shelfId}/removeVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
                 {},
                 {
                     headers: {
@@ -99,6 +99,8 @@ const Dashboard = (props) => {
                     setOpen={setOpen}
                     bookShelves={bookShelves}
                     setBookShelves={setBookShelves}
+                    removeBook={removeBookFromShelf}
+                    token={props.token}
                 />
             </Route>
         </>

@@ -41,6 +41,8 @@ const BookDetailBar = (props) => {
                     publishedDate={book.volumeInfo.publishedDate}
                     img={book.volumeInfo.imageLinks.smallThumbnail}
                     showDetails={props.detailClicked}
+                    removeBook={props.removeBook}
+                    shelfId={shelfId}
                 />
             );
         });
