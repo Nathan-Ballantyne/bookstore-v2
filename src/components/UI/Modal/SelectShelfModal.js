@@ -1,21 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal';
 import AddRemoveButton from '../Button/AddRemoveButton.styled';
 
-const SelectShelfModal = ({ options, addBook, bookId }) => {
+const SelectShelfModal = ({ options, addBook, show, setShow }) => {
+    const [shelfId, setshelfId] = useState(0);
+    const path = window.location.pathname.split('/');
+    const bookId = path[2];
+
+    const handleChange = (e) => {
+        setshelfId(e.target.value);
+    };
+
     return (
-        <Modal show={false} modalClosed={''}>
+        <Modal show={show} modalClosed={() => setShow(false)}>
             <div>
-                <select>
+                <select value={shelfId} onChange={handleChange}>
                     {options.map((option) => {
                         return (
-                            <option key={option?.value} value={option?.value}>
+                            <option key={option?.id} value={option?.id}>
                                 {option?.title}
                             </option>
                         );
                     })}
                 </select>
-                <AddRemoveButton color='green' onClick={() => addBook(bookId)}>
+                <AddRemoveButton
+                    color='green'
+                    onClick={() => {
+                        addBook(bookId, shelfId);
+                        setShow(false);
+                    }}>
                     Ok
                 </AddRemoveButton>
             </div>

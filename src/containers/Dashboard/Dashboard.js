@@ -11,6 +11,7 @@ import axios from 'axios';
 const Dashboard = (props) => {
     const [open, setOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [showShelfModal, setShowShelfModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
     const [bookShelves, setBookShelves] = useState([]);
 
@@ -37,10 +38,10 @@ const Dashboard = (props) => {
         );
     };
 
-    const addBookToShelf = async (bookId) => {
+    const addBookToShelf = async (bookId, shelfId = 0) => {
         axios
             .post(
-                `https://www.googleapis.com/books/v1/mylibrary/bookshelves/0/addVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
+                `https://www.googleapis.com/books/v1/mylibrary/bookshelves/${shelfId}/addVolume?volumeId=${bookId}&key=${process.env.REACT_APP_GOOGLE_API_KEY}`,
                 {},
                 {
                     headers: {
@@ -67,15 +68,16 @@ const Dashboard = (props) => {
             .catch(console.log);
     };
 
-    const modalClosed = () => {
-        setShowModal(false);
-    };
-
     return (
         <>
-            <SelectShelfModal options={[{value: 1, title: 'one'}, {value: 2, title: 'two'}]} addBook={addBookToShelf} bookId='' />
-                
-            <Modal show={showModal} modalClosed={modalClosed}>
+            <SelectShelfModal
+                show={showShelfModal}
+                setShow={setShowShelfModal}
+                options={bookShelves}
+                addBook={addBookToShelf}
+            />
+
+            <Modal show={showModal} modalClosed={() => setShowModal(false)}>
                 {modalContent}
             </Modal>
             <Toolbar
@@ -90,7 +92,10 @@ const Dashboard = (props) => {
                 addBook={addBookToShelf}
             />
             <Route path='/book/:id'>
-                <BookPage />
+                <BookPage
+                    shelves={bookShelves}
+                    setShowShelfModal={setShowShelfModal}
+                />
             </Route>
             <Route exact path='/'>
                 <MainContent

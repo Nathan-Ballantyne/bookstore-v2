@@ -7,7 +7,7 @@ import AddRemoveButton from '../../../components/UI/Button/AddRemoveButton.style
 //import addIcon from '../../../assets/Icons/add-button-icon.png';
 //import Spinner from '../../../components/UI/Spinner/Spinner';
 
-const BookInformation = () => {
+const BookInformation = ({ shelves, setShowShelfModal }) => {
     const [bookId, setbookId] = useState('');
     const [bookInformation, setbookInformation] = useState({});
     // const [loaded, setLoaded] = useState(false);
@@ -31,6 +31,8 @@ const BookInformation = () => {
         }
     }, [bookId]);
 
+    
+
     return (
         <BookPage>
             <Cover
@@ -50,7 +52,7 @@ const BookInformation = () => {
                 <TitleStyleSmall>
                     {bookInformation?.volumeInfo?.title}
                 </TitleStyleSmall>
-                <AddRemoveButton color='#5eaaa8'>Add</AddRemoveButton>
+                <AddRemoveButton onClick={() => setShowShelfModal(true)} color='#5eaaa8'>Add</AddRemoveButton>
                 <p>
                     <strong>Author: </strong>
                     {bookInformation?.volumeInfo?.authors?.join(', ')}
