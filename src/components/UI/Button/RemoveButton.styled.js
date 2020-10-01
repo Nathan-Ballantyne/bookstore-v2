@@ -8,7 +8,8 @@ const Remove = styled.div`
     height: 16px;
     z-index: 50;
     position: absolute;
-    margin-top: 20px;
+    margin-top: 15px;
+    margin-left: -5px;
     transition: transform .3s;
 
     &:hover {
