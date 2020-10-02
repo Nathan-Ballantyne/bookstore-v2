@@ -17,7 +17,7 @@ const BookDetailBar = (props) => {
                     `https://www.googleapis.com/books/v1/users/${process.env.REACT_APP_GOOGLE_USER_ID}/bookshelves/${props.shelfId}/volumes`
                 )
                 .then((response) => {
-                    setBooks(response.data.items);
+                    setBooks(response.data.items ?? []);
                     setShelfId(props.shelfId);
                     setLoaded(true);
                 })
@@ -28,24 +28,28 @@ const BookDetailBar = (props) => {
     let bookDetail = <Spinner />;
 
     if (loaded) {
-        bookDetail = books.map((book) => {
-            return (
-                <BookDetail
-                    key={book.id}
-                    id={book.id}
-                    title={book.volumeInfo.title}
-                    subtitle={book.volumeInfo.subtitle}
-                    description={book.volumeInfo.description}
-                    author={book.volumeInfo.authors.join(', ')}
-                    pagecount={book.volumeInfo.pageCount}
-                    publishedDate={book.volumeInfo.publishedDate}
-                    img={book.volumeInfo.imageLinks.smallThumbnail}
-                    showDetails={props.detailClicked}
-                    removeBook={props.removeBook}
-                    shelfId={shelfId}
-                />
-            );
-        });
+        if (books === []) {
+            bookDetail = null;
+        } else {
+            bookDetail = books.map((book) => {
+                return (
+                    <BookDetail
+                        key={book.id}
+                        id={book.id}
+                        title={book.volumeInfo.title}
+                        subtitle={book.volumeInfo.subtitle}
+                        description={book.volumeInfo.description}
+                        author={book.volumeInfo.authors.join(', ')}
+                        pagecount={book.volumeInfo.pageCount}
+                        publishedDate={book.volumeInfo.publishedDate}
+                        img={book.volumeInfo.imageLinks.smallThumbnail}
+                        showDetails={props.detailClicked}
+                        removeBook={props.removeBook}
+                        shelfId={shelfId}
+                    />
+                );
+            });
+        }
     }
 
     return <div className={classes.BookDetailBar}>{bookDetail}</div>;
