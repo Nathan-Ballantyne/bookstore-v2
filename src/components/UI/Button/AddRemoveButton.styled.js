@@ -2,15 +2,20 @@ import styled from 'styled-components';
 
 const AddRemoveButton = styled.button`
     @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap');
-    height: 20px;
-    width: 60px;
-    border-radius: 10px;
-    background-color: ${props => props.color};
+    height: 30px;
+    padding: 0 15px 0 15px;
+    border-radius: 20px;
+    background-color: ${(props) => props.color ?? 'green'};
     font-family: 'Baloo Tamma 2', cursive;
     font-size: 12px;
     color: white;
     border: none;
-    display: inline-block;
+    display: block;
+
+    &:focus {
+        outline: none;
+    }
+
     &:hover {
         cursor: pointer;
     }
