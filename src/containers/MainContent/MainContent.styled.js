@@ -1,4 +1,6 @@
-.MainContent {
+import styled from 'styled-components';
+
+const MainContent = styled.div`
     position: fixed;
     left: 260px;
     top: 80px;
@@ -8,9 +10,10 @@
     align-content: flex-start;
     overflow: auto;
     flex-direction: column;
-}
-@media (max-width: 579px) {
-    .MainContent {
+
+    @media (max-width: 579px) {
         left: 40px;
     }
-}
+`;
+
+export default MainContent;
