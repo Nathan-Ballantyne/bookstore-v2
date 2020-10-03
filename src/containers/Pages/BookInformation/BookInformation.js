@@ -31,8 +31,6 @@ const BookInformation = ({ shelves, setShowShelfModal }) => {
         }
     }, [bookId]);
 
-    
-
     return (
         <BookPage>
             <Cover
@@ -52,7 +50,11 @@ const BookInformation = ({ shelves, setShowShelfModal }) => {
                 <TitleStyleSmall>
                     {bookInformation?.volumeInfo?.title}
                 </TitleStyleSmall>
-                <AddRemoveButton onClick={() => setShowShelfModal(true)} color='#5eaaa8'>Add</AddRemoveButton>
+                <AddRemoveButton
+                    onClick={() => setShowShelfModal(true)}
+                    color='#5eaaa8'>
+                    Add to List
+                </AddRemoveButton>
                 <p>
                     <strong>Author: </strong>
                     {bookInformation?.volumeInfo?.authors?.join(', ')}
