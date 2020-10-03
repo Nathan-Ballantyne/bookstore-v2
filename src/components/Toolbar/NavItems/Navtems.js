@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '../../UI/ReactLinkStyle/Link.styled';
 import NavItem from '../../UI/Button/Button';
 import classes from './NavItems.module.css';
 
@@ -9,11 +10,41 @@ import userIcon from '../../../assets/Icons/user-icon.png';
 import settingIcon from '../../../assets/Icons/setting-icon.png';
 
 const navItems = [
-    { type: 'main', icon: bookIcon, title: 'Bookstore', alt: 'main-icon' },
-    { type: 'detail', icon: userIcon, title: 'Profile', alt: 'profile-icon' },
-    { type: 'detail', icon: listIcon, title: 'Lists', alt: 'lists-icon' },
-    { type: 'detail', icon: statsIcon, title: 'Stats', alt: 'stats-icon' },
-    { type: 'detail', icon: settingIcon, title: 'Settings', alt: 'setting-icon' },
+    {
+        type: 'main',
+        icon: bookIcon,
+        title: 'Bookstore',
+        alt: 'main-icon',
+        to: '/',
+    },
+    {
+        type: 'detail',
+        icon: userIcon,
+        title: 'Profile',
+        alt: 'profile-icon',
+        to: 'profile',
+    },
+    {
+        type: 'detail',
+        icon: listIcon,
+        title: 'Lists',
+        alt: 'lists-icon',
+        to: 'all-lists',
+    },
+    {
+        type: 'detail',
+        icon: statsIcon,
+        title: 'Stats',
+        alt: 'stats-icon',
+        to: 'stats',
+    },
+    {
+        type: 'detail',
+        icon: settingIcon,
+        title: 'Settings',
+        alt: 'setting-icon',
+        to: 'settings',
+    },
 ];
 
 const NavigationItems = () => {
@@ -21,13 +52,15 @@ const NavigationItems = () => {
         <div className={classes.NavItems}>
             {navItems.map((item) => {
                 return (
-                    <NavItem
-                        key={item.title}
-                        itemType={item.type}
-                        icon={item.icon}
-                        title={item.title}
-                        alt={item.alt}
-                    />
+                    <Link to={item.to}>
+                        <NavItem
+                            key={item.title}
+                            itemType={item.type}
+                            icon={item.icon}
+                            title={item.title}
+                            alt={item.alt}
+                        />
+                    </Link>
                 );
             })}
         </div>
