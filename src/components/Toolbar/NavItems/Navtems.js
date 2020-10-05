@@ -52,9 +52,8 @@ const NavigationItems = () => {
         <NavItems>
             {navItems.map((item) => {
                 return (
-                    <Link to={item.to}>
+                    <Link to={item.to} key={item.title}>
                         <NavItem
-                            key={item.title}
                             itemType={item.type}
                             icon={item.icon}
                             title={item.title}
