@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import classes from './MainContent.module.css';
+import MainContentStyle from './MainContent.styled';
 import BookshelfBar from '../../components/BookshelfBar/BookshelfBar';
 import BookDetailBar from '../../components/BookDetailBar/BookDetailBar';
 import Spinner from '../../components/UI/Spinner/Spinner';
@@ -36,10 +36,10 @@ const MainContent = ({ modalDetails, bookShelves, setBookShelves, removeBook }) 
     }
 
     return (
-        <div className={classes.MainContent}>
+        <MainContentStyle>
             {bookshelfBar}
             <BookDetailBar removeBook={removeBook} detailClicked={modalDetails} shelfId={shelfId} />
-        </div>
+        </MainContentStyle>
     );
 };
 

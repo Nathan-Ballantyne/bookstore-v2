@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '../../UI/ReactLinkStyle/Link.styled';
 import NavItem from '../../UI/Button/Button';
-import classes from './NavItems.module.css';
+import NavItems from './NavItems.styled';
 
 import bookIcon from '../../../assets/Icons/book-icon.png';
 import listIcon from '../../../assets/Icons/list-icon.png';
@@ -49,7 +49,7 @@ const navItems = [
 
 const NavigationItems = () => {
     return (
-        <div className={classes.NavItems}>
+        <NavItems>
             {navItems.map((item) => {
                 return (
                     <Link to={item.to}>
@@ -63,7 +63,7 @@ const NavigationItems = () => {
                     </Link>
                 );
             })}
-        </div>
+        </NavItems>
     );
 };
 
