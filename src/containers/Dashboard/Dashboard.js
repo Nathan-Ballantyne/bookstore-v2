@@ -80,11 +80,7 @@ const Dashboard = (props) => {
             <Modal show={showModal} modalClosed={() => setShowModal(false)}>
                 {modalContent}
             </Modal>
-            <Toolbar
-                isLoggedIn={props.setLogin}
-                open={open}
-                setOpen={setOpen}
-            />
+            <Toolbar open={open} setOpen={setOpen} />
             <Search
                 modalDetails={showModalDetails}
                 open={open}

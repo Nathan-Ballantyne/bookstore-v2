@@ -1,19 +1,22 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useGoogleLogin } from 'react-google-login';
 import Button from '../../UI/Button/Button';
 import googleIcon from '../../../assets/Icons/google-logo.png';
+import { signIn as signMeIn } from '../../../actions/signedInAction';
 
 //refrest token
 import { refreshTokenSetup } from '../RefreshToken/RefreshToken';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 
-function LoginHooks(props) {
+const LoginHooks = (props) => {
+    const dispatch = useDispatch();
 
     const onSuccess = (res) => {
-        props.setLogin(true);
         props.setToken(res.accessToken);
         refreshTokenSetup(res);
+        dispatch(signMeIn(true));
     };
 
     const onFailure = (res) => {
@@ -24,13 +27,12 @@ function LoginHooks(props) {
         onSuccess,
         onFailure,
         clientId,
-        isSignedIn: true,//props.loggedIn,
+        isSignedIn: true, //props.loggedIn,
         prompt: 'consent',
         responseType: 'code,token',
         accessType: 'offline',
         cookiePolicy: 'single_host_origin',
-        scope: 'https://www.googleapis.com/auth/books'
-        
+        scope: 'https://www.googleapis.com/auth/books',
     });
 
     return (
@@ -42,6 +44,6 @@ function LoginHooks(props) {
             title='Login with Google'
         />
     );
-}
+};
 
 export default LoginHooks;
