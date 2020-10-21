@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useGoogleLogin } from 'react-google-login';
 import Button from '../../UI/Button/Button';
 import googleIcon from '../../../assets/Icons/google-logo.png';
-import { signIn as signMeIn } from '../../../actions/signedInAction';
+import { signIn as signMeIn } from '../../../actions/signedInActions';
 
 //refrest token
 import { refreshTokenSetup } from '../RefreshToken/RefreshToken';

@@ -4,7 +4,7 @@ import { useGoogleLogout } from 'react-google-login';
 import Button from '../../UI/Button/Button';
 import LogoutStyle from './LogoutHooks.styled';
 import googleIcon from '../../../assets/Icons/google-logo.png';
-import { signIn } from '../../../actions/signedInAction';
+import { signIn } from '../../../actions/signedInActions';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENTID;
 
