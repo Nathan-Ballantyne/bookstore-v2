@@ -7,7 +7,7 @@ import AddRemoveButton from '../../../components/UI/Button/AddRemoveButton.style
 //import addIcon from '../../../assets/Icons/add-button-icon.png';
 //import Spinner from '../../../components/UI/Spinner/Spinner';
 
-const BookInformation = ({ shelves, setShowShelfModal }) => {
+const BookInformation = ({ setShowShelfModal }) => {
     const [bookId, setbookId] = useState('');
     const [bookInformation, setbookInformation] = useState({});
     // const [loaded, setLoaded] = useState(false);
@@ -24,8 +24,6 @@ const BookInformation = ({ shelves, setShowShelfModal }) => {
                 )
                 .then((res) => {
                     setbookInformation(res.data);
-                    //setLoaded(true);
-                    console.log(res.data);
                 })
                 .catch(console.log);
         }

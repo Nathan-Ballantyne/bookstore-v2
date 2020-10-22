@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Toolbar from '../../components/Toolbar/Toolbar';
 import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
@@ -13,7 +14,9 @@ const Dashboard = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [showShelfModal, setShowShelfModal] = useState(false);
     const [modalContent, setModalContent] = useState(null);
-    const [bookShelves, setBookShelves] = useState([]);
+
+    const bookShelfList = useSelector((state) => state.bookShelfList);
+    const { bookShelves } = bookShelfList;
 
     const showModalDetails = (items) => {
         setShowModal(true);
@@ -88,10 +91,7 @@ const Dashboard = (props) => {
                 addBook={addBookToShelf}
             />
             <Route path='/book/:id'>
-                <BookPage
-                    shelves={bookShelves}
-                    setShowShelfModal={setShowShelfModal}
-                />
+                <BookPage setShowShelfModal={setShowShelfModal} />
             </Route>
             <Route exact path='/'>
                 <MainContent
@@ -99,7 +99,6 @@ const Dashboard = (props) => {
                     open={open}
                     setOpen={setOpen}
                     bookShelves={bookShelves}
-                    setBookShelves={setBookShelves}
                     removeBook={removeBookFromShelf}
                     token={props.token}
                 />
