@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import BookPage, { Cover } from './BookInformation.styled';
 import { TitleStyleSmall } from '../../../components/UI/Title/Title.styled';
 import axios from 'axios';
@@ -8,26 +9,21 @@ import AddRemoveButton from '../../../components/UI/Button/AddRemoveButton.style
 //import Spinner from '../../../components/UI/Spinner/Spinner';
 
 const BookInformation = ({ setShowShelfModal }) => {
-    const [bookId, setbookId] = useState('');
     const [bookInformation, setbookInformation] = useState({});
     // const [loaded, setLoaded] = useState(false);
 
+    let { id } = useParams();
+
     useEffect(() => {
-        //book id is the second item in the path array
-        const path = window.location.pathname.split('/');
-        const id = path[2];
-        setbookId(id);
-        if (bookId !== '') {
-            axios
-                .get(
-                    `https://www.googleapis.com/books/v1/volumes/${id}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
-                )
-                .then((res) => {
-                    setbookInformation(res.data);
-                })
-                .catch(console.log);
-        }
-    }, [bookId]);
+        axios
+            .get(
+                `https://www.googleapis.com/books/v1/volumes/${id}?key=${process.env.REACT_APP_GOOGLE_API_KEY}`
+            )
+            .then((res) => {
+                setbookInformation(res.data);
+            })
+            .catch(console.log);
+    }, [id]);
 
     return (
         <BookPage>
