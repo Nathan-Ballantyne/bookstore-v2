@@ -8,16 +8,13 @@ const SearchResults = ({ results, term, showDetails, addBook, setSearch }) => {
     if (results === [] || term === '') {
         return null;
     }
-    console.log(results);
     return (
         <List>
             {results.map((result) => {
                 return (
                     <Item key={result.id}>
                         <QuickInfo
-                            onClick={() =>
-                                showDetails(result?.volumeInfo)
-                            }
+                            onClick={() => showDetails(result?.volumeInfo)}
                             src={quickInfoIcon}
                             alt={'Quick Info'}
                         />
