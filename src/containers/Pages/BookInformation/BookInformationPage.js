@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import BookPage, { Cover } from './BookInformation.styled';
+import BookPage, { Cover } from './BookInformationPage.styled';
 import { TitleStyleSmall } from '../../../components/UI/Title/Title.styled';
 import axios from 'axios';
 import parse from 'html-react-parser';

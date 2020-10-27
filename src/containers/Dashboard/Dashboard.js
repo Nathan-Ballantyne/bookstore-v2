@@ -5,7 +5,7 @@ import Search from '../../components/Search/Search';
 import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
 import SelectShelfModal from '../../components/UI/Modal/SelectShelfModal';
-import BookPage from '../Pages/BookInformation/BookInformation';
+import BookPage from '../Pages/BookInformation/BookInformationPage';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 
