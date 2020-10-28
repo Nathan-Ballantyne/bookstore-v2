@@ -1,2 +1,0 @@
-export const SIGNEDIN_SUCCESS = 'SIGNEDIN_SUCCESS';
-export const SIGNEDIN_FAIL = 'SIGNEDIN_FAIL';
