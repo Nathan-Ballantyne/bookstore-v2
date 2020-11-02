@@ -1,16 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import BookPage, { Cover } from './BookInformationPage.styled';
 import { TitleStyleSmall } from '../../../components/UI/Title/Title.styled';
 import axios from 'axios';
 import parse from 'html-react-parser';
 import AddRemoveButton from '../../../components/UI/Button/AddRemoveButton.styled';
-//import addIcon from '../../../assets/Icons/add-button-icon.png';
+import BackButtonIcon from '../../../assets/Icons/back-button.png';
 //import Spinner from '../../../components/UI/Spinner/Spinner';
+
+const BackButton = styled.img`
+    width: 32px;
+    height: 30px;
+    margin-bottom: 5px;
+    display: inline-block;
+    &:hover {
+        cursor: pointer;
+    }
+`;
+
+BackButton.defaultProps = {
+    src: BackButtonIcon,
+    alt: 'back button',
+};
 
 const BookInformation = ({ setShowShelfModal }) => {
     const [bookInformation, setbookInformation] = useState({});
-    // const [loaded, setLoaded] = useState(false);
+    const history = useHistory();
 
     let { id } = useParams();
 
@@ -27,6 +43,11 @@ const BookInformation = ({ setShowShelfModal }) => {
 
     return (
         <BookPage>
+            <BackButton
+                onClick={() => {
+                    history.goBack();
+                }}
+            />
             <Cover
                 src={bookInformation?.volumeInfo?.imageLinks?.thumbnail}
                 alt={bookInformation?.volumeInfo?.title + ' img'}
