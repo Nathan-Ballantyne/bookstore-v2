@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allListBookShelves } from '../../../actions/bookShelfListActions';
+import BookShelf from '../../../components/BookshelfBar/Bookshelf/Bookshelf';
 import StyledListPage from './ListsPage.styled';
 
 const ListsScreen = ({ token }) => {
@@ -14,8 +15,15 @@ const ListsScreen = ({ token }) => {
 
     return (
         <StyledListPage>
-            {bookShelvesList.map((list) => {
-                return <div key={list.id}>{list.title}</div>;
+            {bookShelvesList.map((shelf) => {
+                return (
+                    <BookShelf
+                        key={shelf.id}
+                        id={shelf.id}
+                        title={shelf.title}
+                        click={() => alert(shelf.title)}
+                    />
+                );
             })}
         </StyledListPage>
     );

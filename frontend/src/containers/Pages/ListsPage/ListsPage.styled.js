@@ -5,6 +5,7 @@ const StyledListPage = styled.div`
     left: 260px;
     top: 80px;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
