@@ -9,7 +9,6 @@ const ListsScreen = ({ token }) => {
     const { bookShelvesList } = allBookShelfList;
 
     useEffect(() => {
-        console.log('use effect triggered');
         dispatch(allListBookShelves(token));
     }, [token, dispatch]);
 
