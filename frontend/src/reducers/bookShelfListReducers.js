@@ -2,6 +2,9 @@ import {
     BOOKSHELF_LIST_REQUEST,
     BOOKSHELF_LIST_SUCCESS,
     BOOKSHELF_LIST_FAIL,
+    ALL_BOOKSHELF_LIST_REQUEST,
+    ALL_BOOKSHELF_LIST_SUCCESS,
+    ALL_BOOKSHELF_LIST_FAIL,
 } from '../constants/bookShelfListConstants';
 
 export const bookShelfListReducer = (state = { bookShelves: [] }, action) => {
@@ -18,16 +21,15 @@ export const bookShelfListReducer = (state = { bookShelves: [] }, action) => {
 };
 
 export const allBookShelfListReducer = (
-    state = { bookShelves: [] },
+    state = { bookShelvesList: [] },
     action
 ) => {
-    console.log('all');
     switch (action.type) {
-        case BOOKSHELF_LIST_REQUEST:
+        case ALL_BOOKSHELF_LIST_REQUEST:
             return { loading: true, bookShelvesList: [] };
-        case BOOKSHELF_LIST_SUCCESS:
+        case ALL_BOOKSHELF_LIST_SUCCESS:
             return { loading: false, bookShelvesList: action.payload };
-        case BOOKSHELF_LIST_FAIL:
+        case ALL_BOOKSHELF_LIST_FAIL:
             return { loading: false, bookShelvesList: action.payload };
         default:
             return state;
