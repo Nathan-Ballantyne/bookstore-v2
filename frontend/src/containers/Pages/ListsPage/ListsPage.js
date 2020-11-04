@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allListBookShelves } from '../../../actions/bookShelfListActions';
 import StyledListPage, { ListItem } from './ListsPage.styled';
-import BookDetailBar from '../../../components/BookDetailBar/BookDetailBar';
 
 const ListsScreen = ({ token }) => {
     const dispatch = useDispatch();
