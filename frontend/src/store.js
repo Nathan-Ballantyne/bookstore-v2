@@ -2,11 +2,15 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { signedInReducer } from './reducers/signedInReducers';
-import { bookShelfListReducer } from './reducers/bookShelfListReducers';
+import {
+    bookShelfListReducer,
+    allBookShelfListReducer,
+} from './reducers/bookShelfListReducers';
 
 const reducer = combineReducers({
     signedIn: signedInReducer,
     bookShelfList: bookShelfListReducer,
+    allBookShelfList: allBookShelfListReducer,
 });
 
 // const signedInFromStorage = localStorage.getItem('bookstoreSignedIn')

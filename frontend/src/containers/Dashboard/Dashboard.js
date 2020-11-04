@@ -6,6 +6,7 @@ import MainContent from '../MainContent/MainContent';
 import Modal from '../../components/UI/Modal/Modal';
 import SelectShelfModal from '../../components/UI/Modal/SelectShelfModal';
 import BookPage from '../Pages/BookInformation/BookInformationPage';
+import ListsPage from '../Pages/ListsPage/ListsPage';
 import { Route } from 'react-router-dom';
 import axios from 'axios';
 
@@ -92,6 +93,9 @@ const Dashboard = (props) => {
             />
             <Route path='/book/:id'>
                 <BookPage setShowShelfModal={setShowShelfModal} />
+            </Route>
+            <Route path='/all-lists'>
+                <ListsPage token={props.token} />
             </Route>
             <Route exact path='/'>
                 <MainContent
