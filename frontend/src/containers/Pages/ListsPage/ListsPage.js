@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { allListBookShelves } from '../../../actions/bookShelfListActions';
-import BookShelf from '../../../components/BookshelfBar/Bookshelf/Bookshelf';
-import StyledListPage from './ListsPage.styled';
+import StyledListPage, { ListItem } from './ListsPage.styled';
+import BookDetailBar from '../../../components/BookDetailBar/BookDetailBar';
 
 const ListsScreen = ({ token }) => {
     const dispatch = useDispatch();
@@ -17,12 +17,9 @@ const ListsScreen = ({ token }) => {
         <StyledListPage>
             {bookShelvesList.map((shelf) => {
                 return (
-                    <BookShelf
-                        key={shelf.id}
-                        id={shelf.id}
-                        title={shelf.title}
-                        click={() => alert(shelf.title)}
-                    />
+                    <ListItem key={shelf.id}>
+                        <div>{shelf.title}</div>
+                    </ListItem>
                 );
             })}
         </StyledListPage>
